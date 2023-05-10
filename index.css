@@ -600,6 +600,7 @@ footer p {
 
   .timeline li .timeline-panel {
     margin-left: 0;
+    display: block;
   }
 
   .timeline li .timeline-panel .subheading {
@@ -610,3 +611,19 @@ footer p {
     font-size: 16px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .timeline li {
+  margin-left: 0 !important;
+  margin-bottom: 50px;
+  }
+  
+  .timeline li .timeline-panel {
+  float: none !important;
+  width: 100% !important;
+  }
+  .timeline li .timeline-image {
+  text-align: center;
+  margin-bottom: 20px;
+  }
+  }
