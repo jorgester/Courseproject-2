@@ -13,6 +13,33 @@ body{
   padding-top: 4.5rem;
 }
 
+/* Styles for the navigation bar */
+.navbar {
+  background-color: #ffffff; /* Set the background color */
+  color: #000000; 
+  text-align: center;/* Set the text color */
+}
+
+.navbar-toggler {
+  border: none; /* Remove the border */
+  background-color: transparent; /* Set a transparent background */
+  color: #000000; /* Set the text color */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Add some spacing between the navigation items */
+}
+
+.nav-link {
+  color: #000000; /* Set the text color for the navigation links */
+  text-decoration: none; /* Remove the default underline */
+}
+
+.nav-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+
 /* Styles for the <header> element */
 header.masthead {
     background-image: url(img/img.jpeg);
@@ -627,3 +654,4 @@ footer p {
   margin-bottom: 20px;
   }
   }
+  
