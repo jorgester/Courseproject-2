@@ -9,27 +9,26 @@
         <link rel="stylesheet" type="text/css" href="index.css">
    </head>
    <body id="page-top">
-  <!-- Navigation-->
- <nav class="navbar navbar-expand-lg navbar-black fixed-top bg-white">
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-black fixed-top bg-white">
   <div class="container">
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars ms-1"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item"><a class="nav-link" href="#Security Background/Clearance">Security Background/Clearance</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Government Resumes">Government Resumes</a></li>
-              <li class="nav-item"><a class="nav-link"  href="#Government Agencies">Government Agencies</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="#Contact us">Contact Us</a></li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars ms-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="#security-background-clearance">Security Background/Clearance</a></li>
+        <li class="nav-item"><a class="nav-link" href="#government-resumes">Government Resumes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#government-agencies">Government Agencies</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-us">Contact Us</a></li>
+      </ul>
+       <form class="d-flex" role="search" id="search-form">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
   </div>
 </nav>
 
@@ -87,7 +86,7 @@
                             </li>
         </section>
 
-        <section class="section-1" id="Security Background/Clearance">
+        <section class="section-1" id="security-background-clearance">
           <h2 class="section-heading text-uppercase">Security Background/Clearance</h2>
           <h3 class="section-subheading text-muted">When it comes to government hiring, there are several types of security clearances that applicants may be required to obtain,
              depending on the nature of the job and the level of access to sensitive information or facilities.<br><br>
@@ -119,7 +118,7 @@
       </section>
       
           
-         <section class="section-2" id="Government Agencies">
+         <section class="section-2" id="government-agencies">
             <h2 class="section-heading text-uppercase">Government Agencies</h2>
             <h3 class="section-subheading"> Government agencies can vary based on the specific country and its organizational structure.<br> 
                 However, I can provide you with a general overview of the types of government agencies that commonly exist.</h3>
@@ -177,7 +176,7 @@
 
             </section>
 
-         <section class="section-3" id="Government Resumes">
+         <section class="section-3" id="government-resumes">
             <h2 class="section-heading text-uppercase">Government Resumes</h2>
             <h3 class="section-subheading text-muted">Government resumes can vary based on the specific requirements of the hiring agency or department.<br><br> 
                 However, here are some common types of government resumes</h3>
@@ -212,7 +211,7 @@
          </div>
           </section>
 
-         <section class="section-4" id="Contact us">
+         <section class="section-4" id="contact-us">
             <h2>Contact Us</h2><br><br>
             <form action="#" method="post">
               
@@ -240,6 +239,32 @@
       <script>
 
     // JavaScript code
+ 
+    // Function to handle the search form submission
+  document.getElementById('search-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    var searchTerm = this.querySelector('input[type="search"]').value.toLowerCase();
+    var navigationItems = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    // Iterate over each navigation item
+    for (var i = 0; i < navigationItems.length; i++) {
+      var navItem = navigationItems[i];
+      var navItemText = navItem.textContent.toLowerCase();
+      
+      // Check if the search term matches the navigation item text
+      if (navItemText.includes(searchTerm)) {
+        // Scroll to the corresponding section
+        var sectionId = navItem.getAttribute('href').substring(1);
+        var section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+          break; // Stop iterating once a match is found
+        }
+      }
+    }
+  });
+
 // Function to open the modal and display the image and description
 function openModal(imageSrc, description) {
   var modal = document.getElementById("myModal");
@@ -261,116 +286,7 @@ function closeModal() {
 var closeButton = document.querySelector(".close");
 closeButton.addEventListener("click", closeModal);
 
-// Event listener for the navbar toggle button
-var navbarToggler = document.querySelector(".navbar-toggler");
-var navbarCollapse = document.querySelector(".navbar-collapse");
-navbarToggler.addEventListener("click", function () {
-  navbarCollapse.classList.toggle("show");
-});
 
-// Event listener for smooth scrolling when clicking on a navigation link
-var navLinks = document.querySelectorAll(".navbar-nav a");
-for (var i = 0; i < navLinks.length; i++) {
-  navLinks[i].addEventListener("click", function (event) {
-    event.preventDefault();
-    var targetSectionId = this.getAttribute("href").substring(1);
-    var targetSection = document.getElementById(targetSectionId);
-    targetSection.scrollIntoView({ behavior: "smooth" });
-  });
-}
-
-// Event listener for the search form submission
-var searchForm = document.querySelector("form[role='search']");
-searchForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  var searchInput = this.querySelector("input[type='search']");
-  var searchTerm = searchInput.value;
-  // Perform search operation with the searchTerm
-  // ...
-  // Clear the search input field
-  searchInput.value = "";
-});
-
-// Function to perform the search operation
-function performSearch(searchTerm) {
-  // Perform search operation with the searchTerm
-  // ...
-  // Display the search results
-  // ...
-}
-
-// Function to set the search term as the keyword for the page
-function setSearchKeyword(keyword) {
-  document.querySelector("meta[name='keywords']").setAttribute("content", keyword);
-}
-
-// JavaScript code
-
-// Function to perform the search operation
-function performSearch(searchTerm) 
-  // Perform search operation with the searchTerm
-  // ...
-
-  // Simulating search results for demonstration purposes
-  var searchResults = [
-    {
-      title: "Search Result 1",
-      description: "This is the first search result.",
-      link: "https://jorgester.github.io/Courseproject-2/#Security%20Background/Clearance"
-    },
-    {
-      title: "Search Result 2",
-      description: "This is the second search result.",
-      link: "https://jorgester.github.io/Courseproject-2/#Government%20Resumes"
-    },
-    {
-      title: "Search Result 3",
-      description: "This is the third search result.",
-      link: "https://jorgester.github.io/Courseproject-2/#Government%20Agencies"
-    },
-    {
-      title: "Search Result 4",
-      description: "This is the fourth search result.",
-      link: "https://jorgester.github.io/Courseproject-2/#about"
-    },
-    {
-      title: "Search Result 5",
-      description: "This is the fifth search result.",
-      link: "https://jorgester.github.io/Courseproject-2/#Contact%20us"
-    }
-  ];
-
-  // Display the search results
-  var resultsContainer = document.getElementById("search-results");
-  resultsContainer.innerHTML = ""; // Clear previous search results
-
-  if (searchResults.length === 0) {
-    var noResultsMessage = document.createElement("p");
-    noResultsMessage.textContent = "No results found.";
-    resultsContainer.appendChild(noResultsMessage);
-  } else {
-    for (var i = 0; i < searchResults.length; i++) {
-      var result = searchResults[i];
-
-      var resultItem = document.createElement("div");
-      resultItem.classList.add("search-result");
-
-      var resultLink = document.createElement("a");
-      resultLink.href = result.link;
-      resultLink.textContent = result.title;
-
-      var resultDescription = document.createElement("p");
-      resultDescription.textContent = result.description;
-
-      var resultDescription = document.createElement("p");
-    resultDescription.textContent = result.description;
-
-    resultItem.appendChild(resultLink);
-    resultItem.appendChild(resultDescription);
-
-    resultsContainer.appendChild(resultItem);
-  }
-}
 
 // Function to validate the contact form
 function validateForm() {
