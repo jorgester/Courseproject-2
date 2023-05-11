@@ -17,7 +17,7 @@ body{
 .navbar {
   background-color: #ffffff; /* Set the background color */
   color: #000000; 
-  text-align: center;/* Set the text color */
+/* Set the text color */
 }
 
 .navbar-toggler {
@@ -37,6 +37,17 @@ body{
 
 .nav-link:hover {
   text-decoration: underline; /* Add underline on hover */
+}
+
+/* Styles for the search button */
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
 }
 
 
